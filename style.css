@@ -87,6 +87,8 @@ summary:focus-visible {
   border-bottom: 1px solid var(--color-ink);
   background: var(--color-paper);
 }
+/* ==================== ALTERAÇÃO 2 — Carina ==================== */
+
 .masthead-inner {
   max-width: 72rem;
   margin: 0 auto;
