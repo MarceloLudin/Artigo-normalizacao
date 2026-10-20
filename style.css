@@ -1,1 +1,89 @@
+/* ==================== ALTERAÇÃO 1 — Ana ==================== */
+/* ==========================================================================
+   Da Planilha ao Modelo Relacional — style.css
+   Estilo caderno / editorial |
+   Fontes: Newsreader + Source Sans 3 + IBM Plex Mono (Google Fonts)
+   ========================================================================== */
 
+:root {
+  --font-serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", serif;
+  --font-sans: "Source Sans 3", "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-paper: #f3efe6;
+  --color-paper-2: #ebe6db;
+  --color-ink: #1c1916;
+  --color-ink-soft: #514c45;
+  --color-mute: #6f685f;
+  --color-rule: #d3ccbf;
+  --color-rule-strong: #1c1916;
+  --color-oxblood: #6e2c28;
+  --color-oxblood-deep: #4e1d1a;
+  --color-wash: #efe4df;
+  --color-code: #1a1816;
+  --color-code-fg: #ebe6db;
+  --color-code-dim: #a3988c;
+  --color-white: #faf8f4;
+
+  --radius-sm: 2px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+button:not(:disabled),
+[role="button"]:not(:disabled) {
+  cursor: pointer;
+}
+
+::selection {
+  background: #e4cfc8;
+  color: var(--color-ink);
+}
+
+a:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--color-oxblood);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Barra de progresso de leitura */
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: var(--color-oxblood);
+  z-index: 40;
+  pointer-events: none;
+}
+
+/* Cabeçalho / masthead */
+.masthead {
+  border-bottom: 1px solid var(--color-ink);
+  background: var(--color-paper);
+}
