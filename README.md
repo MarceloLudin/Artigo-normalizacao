@@ -2,7 +2,7 @@
 
 Este repositório contém o artigo técnico e os scripts SQL desenvolvidos para a disciplina de Modelagem de Banco de Dados, sob orientação da Profª Andréa Ono Sakai (Braz Cubas).
 
-- *URL da Página Publicada:* [Inserir o link do GitHub Pages aqui]
+- *URL da Página Publicada:* https://artigonormalizacao.netlify.app/
 - *SGBD Utilizado:* PostgreSQL 16
 
 ## Integrantes do Grupo
