@@ -358,5 +358,93 @@ pre {
   padding: 1rem 1.1rem 1.1rem;
   overflow-x: auto;
   border-radius: var(--radius-sm);
+/* ==================== ALTERAÇÃO 5 — Murilo ==================== */
+  max-width: 100%;
+}
 
+pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  font-size: 0.78rem;
+  line-height: 1.55;
+  white-space: pre;
+}
+
+.code-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-top: 1.4rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-mute);
+  font-weight: 700;
+}
+
+.code-link {
+  margin: 0 0 1.2rem;
+  font-size: 0.92rem;
+}
+
+/* Tabelas */
+.table-wrap {
+  overflow-x: auto;
+  margin: 0.4rem 0 1.2rem;
+  max-width: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  background: var(--color-white);
+  min-width: 28rem;
+}
+
+caption {
+  caption-side: top;
+  text-align: left;
+  font-size: 0.82rem;
+  color: var(--color-mute);
+  font-weight: 600;
+  padding: 0 0 0.45rem;
+}
+
+th {
+  text-align: left;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--color-ink);
+  border-bottom: 2px solid var(--color-ink);
+  padding: 0.45rem 0.6rem;
+  white-space: nowrap;
+}
+
+td {
+  padding: 0.5rem 0.6rem;
+  border-bottom: 1px solid var(--color-rule);
+  vertical-align: top;
+}
+
+tbody tr:last-child td {
+  border-bottom: 1px solid var(--color-ink);
+}
+
+/* Autores */
+.authors {
+  display: grid;
+  gap: 0;
+  margin-top: 0.5rem;
+  border-top: 1px solid var(--color-ink);
+}
+
+.author {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 0.85rem;
   
