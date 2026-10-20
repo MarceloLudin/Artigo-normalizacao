@@ -214,7 +214,7 @@ INSERT INTO pedido_plano VALUES
 UPDATE pedido_plano SET email_cliente = 'ana.souza@email.com' WHERE nome_cliente = 'Ana Souza';</code></pre>
           
           <p>O banco deve responder que o UPDATE alterou 3 linhas. Isso confirma a repetição.</p>
-          <p class="code-link"><a href="https://github.com/lchaves06/artigo-normalizacao/blob/main/sql/01_cafe_plano.sql" target="_blank" rel="noreferrer">Script completo 01_cafe_plano.sql</a></p>
+          <p class="code-link"><a href="https://github.com/MarceloLudin/Artigo-normalizacao/blob/main/sql/01_cafe_plano.sql" target="_blank" rel="noreferrer">Script completo 01_cafe_plano.sql</a></p>
 
           <h3>2.2 Primeira forma normal: um valor por célula</h3>
           <div class="table-wrap">
@@ -484,7 +484,7 @@ JOIN item_pedido i ON i.id_pedido = p.id_pedido
 GROUP BY c.nome
 ORDER BY total_gasto DESC;</code></pre>
           
-          <p class="code-link"><a href="https://github.com/lchaves06/artigo-normalizacao/blob/main/sql/02_cafe_3fn.sql" target="_blank" rel="noreferrer">Script completo 02_cafe_3fn.sql</a></p>
+          <p class="code-link"><a href="https://github.com/MarceloLudin/Artigo-normalizacao/blob/main/sql/02_cafe_3fn.sql" target="_blank" rel="noreferrer">Script completo 02_cafe_3fn.sql</a></p>
 
           <p>O resultado esperado da consulta final é o total gasto por cliente. Para a Ana: 2 × 32,90 + 9,50 + 149,00 = 224,30.</p>
           <div class="table-wrap">
@@ -648,7 +648,7 @@ INSERT INTO matricula SELECT aluno, professor FROM aula_3fn;
 -- A Lúcia passa a lecionar Francês: agora só UMA linha muda
 UPDATE professor_disciplina SET disciplina = 'Francês' WHERE professor = 'Lúcia';</code></pre>
 
-          <p class="code-link"><a href="https://github.com/lchaves06/artigo-normalizacao/blob/main/sql/03_bcnf.sql" target="_blank" rel="noreferrer">Script completo 03_bcnf.sql, com trigger de validação</a></p>
+          <p class="code-link"><a href="https://github.com/MarceloLudin/Artigo-normalizacao/blob/main/sql/03_bcnf.sql" target="_blank" rel="noreferrer">Script completo 03_bcnf.sql, com trigger de validação</a></p>
 
           <p><strong>Onde a BCNF falha.</strong> A regra antiga se perde. Antes da decomposição, a regra “cada aluno tem um só professor por disciplina” era garantida pela chave <code>(aluno, disciplina)</code>. Depois, aluno e disciplina ficam em tabelas diferentes, e nenhuma chave garante a regra sozinha. Por isso precisamos de um <strong>gatilho</strong> (<em>trigger</em>), que é um código que o banco executa sozinho quando alguém insere dados, ou de uma regra no programa. O gatilho do script completo é simples de propósito: ele só confere novas matrículas. Nem toda tabela pode ser levada à BCNF sem perder alguma regra, e, quando isso acontece, ficar na 3FN pode ser a escolha mais prática. O importante é justificar a decisão.</p>
 
@@ -728,7 +728,7 @@ FROM curso_livro cl
 JOIN curso_docente cd ON cd.curso = cl.curso;
 -- Esperado: 8 linhas</code></pre>
 
-          <p class="code-link"><a href="https://github.com/lchaves06/artigo-normalizacao/blob/main/sql/04_4fn.sql" target="_blank" rel="noreferrer">Script completo 04_4fn.sql</a></p>
+          <p class="code-link"><a href="https://github.com/MarceloLudin/Artigo-normalizacao/blob/main/sql/04_4fn.sql" target="_blank" rel="noreferrer">Script completo 04_4fn.sql</a></p>
 
           <p>O livro novo entrou com uma única linha, e a consulta de reconstrução devolve todas as combinações, inclusive a do livro novo com os dois docentes. São 8 linhas: 6 de Banco de Dados (3 livros vezes 2 docentes) e 2 de Redes.</p>
           <p><strong>Onde a 4FN falha.</strong> Nem toda tabela de três colunas é 4FN. Se cada docente usa o seu próprio livro naquele curso (por exemplo, a Helena usa o livro A e o Rui usa o livro B), as listas deixam de ser independentes, porque o livro passa a depender do docente. Separar as tabelas, nesse caso, faria perder a informação de quem usa qual livro. Antes de aplicar a 4FN, pergunte a quem conhece o negócio se as duas listas realmente são independentes.</p>
@@ -801,7 +801,7 @@ EXCEPT
 SELECT agente, empresa, produto FROM representacao;
 -- Esperado: 0 linhas</code></pre>
 
-          <p class="code-link"><a href="https://github.com/lchaves06/artigo-normalizacao/blob/main/sql/05_5fn.sql" target="_blank" rel="noreferrer">Script completo 05_5fn.sql</a></p>
+          <p class="code-link"><a href="https://github.com/MarceloLudin/Artigo-normalizacao/blob/main/sql/05_5fn.sql" target="_blank" rel="noreferrer">Script completo 05_5fn.sql</a></p>
 
           <p>A consulta volta com 0 linhas. No script completo há uma segunda consulta, no sentido contrário, que também deve voltar vazia. Juntas, mostram que a junção reproduz a tabela original sem sobras nem faltas.</p>
           <p><strong>Onde a 5FN falha.</strong> A 5FN só vale se a regra do negócio for verdadeira. Ela é uma afirmação sobre os dados, e não algo que se descobre olhando algumas linhas. Se a Ana puder vender canetas da Alfa sem que a regra valha (por exemplo, por causa de um contrato exclusivo), a junção das três tabelas geraria linhas falsas. Além disso, neste exemplo pequeno as três tabelas guardam até mais valores que a original (18 contra 12), então o ganho não é espaço, e sim a regra do negócio ficar expressa na estrutura. Esse tipo de dependência também é difícil de descobrir e raro na prática. Por isso muitos livros mostram poucos exemplos reais de 5FN, e muitos projetos terminam na 3FN ou na BCNF.</p>
@@ -1061,8 +1061,8 @@ SELECT agente, empresa, produto FROM representacao;
         </div>
         <div>
           <h2>Código</h2>
-          <p><a href="https://github.com/lchaves06/artigo-normalizacao" target="_blank" rel="noreferrer">Repositório no GitHub</a></p>
-          <p><a href="https://github.com/lchaves06/artigo-normalizacao/issues" target="_blank" rel="noreferrer">Contato: abra uma issue no repositório</a></p>
+          <p><a href="https://github.com/MarceloLudin/Artigo-normalizacao" target="_blank" rel="noreferrer">Repositório no GitHub</a></p>
+          <p><a href="https://github.com/MarceloLudin/Artigo-normalizacao/issues" target="_blank" rel="noreferrer">Contato: abra uma issue no repositório</a></p>
         </div>
       </div>
       <div class="colophon-bar">
