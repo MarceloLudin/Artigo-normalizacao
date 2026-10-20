@@ -28,6 +28,7 @@ Este repositório contém o artigo técnico e os scripts SQL desenvolvidos para 
 2. Crie uma nova base de dados limpa:
    ```sql
    CREATE DATABASE db_normalizacao;
+   ```
 3. Execute os arquivos da pasta /sql em ordem numérica. 
    - Nota: Os scripts 01 e 02 devem ser executados na mesma base.
    - Nota 2: No script 03_bcnf.sql, a última instrução de INSERT foi comentada pois foi desenhada para falhar de propósito, demonstrando o bloqueio da trigger de validação.
